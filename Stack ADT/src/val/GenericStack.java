@@ -33,7 +33,7 @@ public class GenericStack<E> {
         list[size] = null; // Removed element value no longer exists
         return ele; // Returns removed element
     }
-    
+
     public E peek() throws Error {
         if(isEmpty()) throw new Error("StackUnderflowError - Stack is empty"); // Throw error is stack is empty
 
