@@ -3,12 +3,13 @@ package val;
 import java.util.Arrays;
 
 public class GenericStack<E> {
-    private Object[] list; // Generic object array
+    private E[] list; // Generic object array
     private int size = 0; // Current position/size of stack utilized
     private static final int DEFAULT = 5; // Default capacity of the array stack
 
+    @SuppressWarnings("unchecked")
     public GenericStack() {
-        list = new Object[DEFAULT]; // Defaults size of array stack
+        list = (E[]) new Object[DEFAULT]; // Defaults size of array stack
     }
 
     public boolean isEmpty() {
@@ -25,7 +26,6 @@ public class GenericStack<E> {
         list[size++] = ele; // Input element is added to the stack
     }
 
-    @SuppressWarnings("unchecked") // I DON'T KNOW HOW TO FIX THIS
     public E pop() throws Error {
         if(isEmpty()) throw new Error("StackUnderflowError - Stack is empty"); // Throw error is stack is empty
 
@@ -33,8 +33,7 @@ public class GenericStack<E> {
         list[size] = null; // Removed element value no longer exists
         return ele; // Returns removed element
     }
-
-    @SuppressWarnings("unchecked") // I DON'T KNOW HOW TO FIX THIS
+    
     public E peek() throws Error {
         if(isEmpty()) throw new Error("StackUnderflowError - Stack is empty"); // Throw error is stack is empty
 
