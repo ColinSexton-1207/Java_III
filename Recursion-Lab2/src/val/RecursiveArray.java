@@ -48,7 +48,7 @@ public class RecursiveArray {
     public int maxArray(int[] list, int count, int max) {
         if(count == 0) max = list[count]; // Default max value is stored
         else if(count == list.length) return max; // Returns max value of array once end of array has been reached
-        else if(max < list[count]) return maxArray(list, count++, list[count]); // Pass new max off to next recursed (lol) run
+        else if(max < list[count]) return maxArray(list, count+1, list[count]); // Pass new max off to next recursed (lol) run
         return maxArray(list, count+1, max); // Increment counter if no max is found
     }
 
